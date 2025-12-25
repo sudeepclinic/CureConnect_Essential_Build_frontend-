@@ -280,6 +280,24 @@ h4 {
     box-shadow: 0 5px 20px rgba(229, 179, 80, 0.4);
     font-weight: 700;
     transition: var(--transition);
+    animation: gentle-pulse 3s infinite;
+}
+
+@keyframes gentle-pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(229, 179, 80, 0.7);
+        transform: scale(1);
+    }
+
+    50% {
+        box-shadow: 0 0 0 10px rgba(229, 179, 80, 0);
+        transform: scale(1.05);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(229, 179, 80, 0);
+        transform: scale(1);
+    }
 }
 
 .floating-cta:hover a {
