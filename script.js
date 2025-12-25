@@ -132,72 +132,39 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     // DOM Elements
-    const langTrigger = document.getElementById('lang-toggle');
-    const modal = document.getElementById('lang-modal');
-    const closeBtn = document.getElementById('close-modal');
-    const langChoices = document.querySelectorAll('.lang-choice-btn');
+    const langEnBtn = document.getElementById('lang-en');
+    const langMrBtn = document.getElementById('lang-mr');
 
     // Function to set language
     function setLanguage(lang) {
         if (!translations[lang]) return;
 
-        // Update Text Content with Fade Effect (Optional)
-        document.body.style.opacity = '0.8';
-        
-        setTimeout(() => {
-            document.querySelectorAll('[data-i18n]').forEach(element => {
-                const key = element.getAttribute('data-i18n');
-                if (translations[lang][key]) {
-                    element.innerHTML = translations[lang][key]; 
-                }
-            });
-            document.body.style.opacity = '1';
-        }, 200);
+        // Update Text Content
+        document.querySelectorAll('[data-i18n]').forEach(element => {
+            const key = element.getAttribute('data-i18n');
+            if (translations[lang][key]) {
+                element.innerHTML = translations[lang][key]; 
+            }
+        });
+
+        // Update Button Styles
+        if (lang === 'en') {
+            langEnBtn.classList.add('active');
+            langMrBtn.classList.remove('active');
+        } else {
+            langMrBtn.classList.add('active');
+            langEnBtn.classList.remove('active');
+        }
 
         // Persist preference
         localStorage.setItem('preferredLang', lang);
-        
-        // Close Modal
-        closeModal();
-    }
-
-    // Modal Functions
-    function openModal() {
-        modal.classList.add('active');
-        document.body.style.overflow = 'hidden'; // Prevent scrolling
-    }
-
-    function closeModal() {
-        modal.classList.remove('active');
-        document.body.style.overflow = ''; // Restore scrolling
     }
 
     // Event Listeners
-    if (langTrigger) {
-        langTrigger.addEventListener('click', (e) => {
-            e.preventDefault();
-            openModal();
-        });
+    if (langEnBtn && langMrBtn) {
+        langEnBtn.addEventListener('click', () => setLanguage('en'));
+        langMrBtn.addEventListener('click', () => setLanguage('mr'));
     }
-
-    if (closeBtn) {
-        closeBtn.addEventListener('click', closeModal);
-    }
-
-    // Close on outside click
-    window.addEventListener('click', (e) => {
-        if (e.target === modal) {
-            closeModal();
-        }
-    });
-
-    // Language Selection
-    langChoices.forEach(btn => {
-        btn.addEventListener('click', () => {
-            const lang = btn.getAttribute('data-lang');
-            setLanguage(lang);
-        });
-    });
 
     // Initialize from LocalStorage
     const savedLang = localStorage.getItem('preferredLang');
