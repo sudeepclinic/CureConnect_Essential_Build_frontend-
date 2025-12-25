@@ -112,12 +112,11 @@
                 <li><a href="#doctors" data-i18n="nav_specialists">Specialists</a></li>
                 <li><a href="#location" data-i18n="nav_location">Location</a></li>
                 <li><a href="https://user.sudiphospitalshirpur.in" class="btn-primary" data-i18n="nav_book">Book Appointment</a></li>
-                 <li class="lang-dropdown">
-                    <button id="lang-btn" class="lang-btn"><i class="fas fa-globe"></i> <span id="current-lang">EN</span></button>
-                    <div class="lang-content">
-                        <a href="#" data-lang="en">English</a>
-                        <a href="#" data-lang="mr">मराठी</a>
-                    </div>
+                <!-- Language Trigger -->
+                <li>
+                    <button id="lang-toggle" class="lang-trigger" aria-label="Change Language">
+                        <i class="fas fa-globe"></i>
+                    </button>
                 </li>
             </ul>
             <div class="menu-toggle">
@@ -250,5 +249,27 @@
     </footer>
 
     <script src="script.js"></script>
+
+    <!-- Language Modal -->
+    <div id="lang-modal" class="modal-overlay">
+        <div class="modal-content">
+            <button id="close-modal" class="close-btn">&times;</button>
+            <div class="modal-header">
+                <i class="fas fa-language"></i>
+                <h3>Select Language / भाषा निवडा</h3>
+                <p>Choose your preferred language</p>
+            </div>
+            <div class="lang-buttons">
+                <button class="lang-choice-btn" data-lang="en">
+                    <span class="lang-name">English</span>
+                    <span class="lang-native">English</span>
+                </button>
+                <button class="lang-choice-btn" data-lang="mr">
+                    <span class="lang-name">Marathi</span>
+                    <span class="lang-native">मराठी</span>
+                </button>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

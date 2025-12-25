@@ -128,47 +128,81 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     };
 
-    const langBtn = document.getElementById('lang-btn');
-    const currentLangSpan = document.getElementById('current-lang');
-    const langOptions = document.querySelectorAll('.lang-content a');
+        }
+    };
+
+    // DOM Elements
+    const langTrigger = document.getElementById('lang-toggle');
+    const modal = document.getElementById('lang-modal');
+    const closeBtn = document.getElementById('close-modal');
+    const langChoices = document.querySelectorAll('.lang-choice-btn');
 
     // Function to set language
     function setLanguage(lang) {
         if (!translations[lang]) return;
 
-        // Update Text Content
-        document.querySelectorAll('[data-i18n]').forEach(element => {
-            const key = element.getAttribute('data-i18n');
-            if (translations[lang][key]) {
-                // Handle different element types if necessary, but innerHTML is usually safe for these specific keys
-                // Using innerHTML to preserve line breaks in hero_title
-                element.innerHTML = translations[lang][key]; 
-            }
-        });
-
-        // Update Button Text
-        currentLangSpan.textContent = lang === 'en' ? 'EN' : 'मराठी';
+        // Update Text Content with Fade Effect (Optional)
+        document.body.style.opacity = '0.8';
+        
+        setTimeout(() => {
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (translations[lang][key]) {
+                    element.innerHTML = translations[lang][key]; 
+                }
+            });
+            document.body.style.opacity = '1';
+        }, 200);
 
         // Persist preference
-        // localStorage.setItem('preferredLang', lang); // Optional: Persist selection
+        localStorage.setItem('preferredLang', lang);
+        
+        // Close Modal
+        closeModal();
     }
 
-    // Event Listeners for Language Selection
-    langOptions.forEach(option => {
-        option.addEventListener('click', (e) => {
+    // Modal Functions
+    function openModal() {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Prevent scrolling
+    }
+
+    function closeModal() {
+        modal.classList.remove('active');
+        document.body.style.overflow = ''; // Restore scrolling
+    }
+
+    // Event Listeners
+    if (langTrigger) {
+        langTrigger.addEventListener('click', (e) => {
             e.preventDefault();
-            const selectedLang = option.getAttribute('data-lang');
-            setLanguage(selectedLang);
-            
-            // On mobile, close menu after selection
-            if (window.innerWidth <= 768) {
-                // Optional: Close dropdown or navbar
-            }
+            openModal();
+        });
+    }
+
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closeModal);
+    }
+
+    // Close on outside click
+    window.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            closeModal();
+        }
+    });
+
+    // Language Selection
+    langChoices.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const lang = btn.getAttribute('data-lang');
+            setLanguage(lang);
         });
     });
 
-    // Initialize (optional: check localStorage)
-    // const savedLang = localStorage.getItem('preferredLang') || 'en';
-    // setLanguage(savedLang);
+    // Initialize from LocalStorage
+    const savedLang = localStorage.getItem('preferredLang');
+    if (savedLang) {
+        setLanguage(savedLang);
+    }
 
 });
