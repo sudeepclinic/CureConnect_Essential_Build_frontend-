@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Sudip Hospital Shirpur - Premium Orthopedic and ENT Care. Dr. Kamlesh Dilip Yeshi (Orthopedic Surgeon) and Dr. Namrata Kamlesh Yeshi (ENT Specialist). Best hospital in Shirpur for advanced medical treatment.">
-    <meta name="keywords" content="sudip hospital Shirpur, sudip hospital shirpur contact number, sudip hospital, Dr. Kamlesh Dilip Yeshi, Mrs. Namrata Kamlesh Yeshi, Orthopedic Surgeon, ENT Specialist, Best Hospital in Shirpur, Orthopedic Doctor Shirpur, ENT Doctor Shirpur">
+    <meta name="keywords" content="sudip hospital Shirpur, sudip hospital shirpur contact number, sudip hospital, Dr. Kamlesh Dilip Yeshi, Mrs. Namrata Kamlesh Yeshi, Orthopedic Surgeon, ENT Specialist, Best Hospital in Shirpur, Orthopedic Doctor Shirpur, ENT Doctor Shirpur, सुदीप हॉस्पिटल शिरपूर, डॉ. कमलेश दिलीप येषी, डॉ. नम्रता कमलेश येषी, अस्थिरोग तज्ञ, कान नाक घसा तज्ञ, शिरपूर मधील सर्वोत्कृष्ट हॉस्पिटल">
     <meta name="author" content="Sudip Hospital">
     <title>Sudip Hospital | Advanced Orthopedic & ENT Care</title>
     
@@ -108,10 +108,17 @@
         <div class="container">
             <a href="#" class="logo">Sudip<span>Hospital</span></a>
             <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#doctors">Specialists</a></li>
-                <li><a href="#location">Location</a></li>
-                <li><a href="https://user.sudiphospitalshirpur.in" class="btn-primary">Book Appointment</a></li>
+                <li><a href="#home" data-i18n="nav_home">Home</a></li>
+                <li><a href="#doctors" data-i18n="nav_specialists">Specialists</a></li>
+                <li><a href="#location" data-i18n="nav_location">Location</a></li>
+                <li><a href="https://user.sudiphospitalshirpur.in" class="btn-primary" data-i18n="nav_book">Book Appointment</a></li>
+                 <li class="lang-dropdown">
+                    <button id="lang-btn" class="lang-btn"><i class="fas fa-globe"></i> <span id="current-lang">EN</span></button>
+                    <div class="lang-content">
+                        <a href="#" data-lang="en">English</a>
+                        <a href="#" data-lang="mr">मराठी</a>
+                    </div>
+                </li>
             </ul>
             <div class="menu-toggle">
                 <i class="fas fa-bars"></i>
@@ -126,11 +133,11 @@
             <div class="overlay"></div>
         </div>
         <div class="container hero-content">
-            <h1 class="animate-up">World-Class Care <br> Close to Home</h1>
-            <p class="animate-up delay-1">Expert Orthopedic & ENT specialists dedicated to your well-being in Shirpur.</p>
+            <h1 class="animate-up" data-i18n="hero_title">World-Class Care <br> Close to Home</h1>
+            <p class="animate-up delay-1" data-i18n="hero_subtitle">Expert Orthopedic & ENT specialists dedicated to your well-being in Shirpur.</p>
             <div class="hero-btns animate-up delay-2">
-                <a href="https://user.sudiphospitalshirpur.in" class="btn-primary large">Book an Appointment <i class="fas fa-arrow-right"></i></a>
-                <a href="#location" class="btn-outline">Visit Us</a>
+                <a href="https://user.sudiphospitalshirpur.in" class="btn-primary large"><span data-i18n="hero_book">Book an Appointment</span> <i class="fas fa-arrow-right"></i></a>
+                <a href="#location" class="btn-outline" data-i18n="hero_visit">Visit Us</a>
             </div>
         </div>
     </header>
@@ -149,9 +156,9 @@
     <section id="doctors" class="section">
         <div class="container">
             <div class="section-header">
-                <h2>Our Specialists</h2>
+                <h2 data-i18n="doctors_title">Our Specialists</h2>
                 <div class="divider"></div>
-                <p>Meet our highly qualified and experienced medical professionals.</p>
+                <p data-i18n="doctors_subtitle">Meet our highly qualified and experienced medical professionals.</p>
             </div>
             
             <div class="doctors-grid">
@@ -161,15 +168,15 @@
                         <img src="assets/images/doctor_kamlesh.png" alt="Dr. Kamlesh Dilip Yeshi - Best Orthopedic Surgeon in Shirpur">
                     </div>
                     <div class="doctor-info">
-                        <h3>Dr. Mr. Kamlesh Dilip Yeshi</h3>
-                        <span class="specialty">Orthopedic Surgeon</span>
+                        <h3 data-i18n="doc_kamlesh_name">Dr. Mr. Kamlesh Dilip Yeshi</h3>
+                        <span class="specialty" data-i18n="doc_kamlesh_spec">Orthopedic Surgeon</span>
                         <ul class="credentials">
                             <li><i class="fas fa-user-md"></i> MBBS, DNB ORTHO</li>
                             <li><i class="fas fa-hospital"></i> Ex. Apollo Hospital Ludhiana</li>
                             <li><i class="fas fa-hospital"></i> Ex. Ganga Hospital Coimbatore</li>
                             <li><i class="fas fa-university"></i> SBH GMC Dhule</li>
                         </ul>
-                        <a href="https://user.sudiphospitalshirpur.in" class="btn-text">Book Visit <i class="fas fa-chevron-right"></i></a>
+                        <a href="https://user.sudiphospitalshirpur.in" class="btn-text"><span data-i18n="book_visit">Book Visit</span> <i class="fas fa-chevron-right"></i></a>
                     </div>
                 </div>
 
@@ -179,14 +186,14 @@
                         <img src="assets/images/doctor_namrata.png" alt="Dr. Namrata Kamlesh Yeshi - ENT Specialist in Shirpur">
                     </div>
                     <div class="doctor-info">
-                        <h3>Dr. Mrs. Namrata Kamlesh Yeshi</h3>
-                        <span class="specialty">ENT Specialist</span>
+                        <h3 data-i18n="doc_namrata_name">Dr. Mrs. Namrata Kamlesh Yeshi</h3>
+                        <span class="specialty" data-i18n="doc_namrata_spec">ENT Specialist</span>
                         <ul class="credentials">
                             <li><i class="fas fa-user-md"></i> MBBS, MS ENT</li>
                             <li><i class="fas fa-university"></i> GMC Aurangabad</li>
                             <li><i class="fas fa-stethoscope"></i> Ear, Nose and Throat Specialist</li>
                         </ul>
-                        <a href="https://user.sudiphospitalshirpur.in" class="btn-text">Book Visit <i class="fas fa-chevron-right"></i></a>
+                        <a href="https://user.sudiphospitalshirpur.in" class="btn-text"><span data-i18n="book_visit">Book Visit</span> <i class="fas fa-chevron-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -197,7 +204,7 @@
     <section id="location" class="section bg-light">
         <div class="container">
             <div class="section-header">
-                <h2>Find Us</h2>
+                <h2 data-i18n="location_title">Find Us</h2>
                 <div class="divider"></div>
             </div>
             
@@ -206,14 +213,14 @@
                     <div class="info-item">
                         <i class="fas fa-map-marker-alt"></i>
                         <div>
-                            <h4>Address</h4>
+                            <h4 data-i18n="address_title">Address</h4>
                             <p>Hulesighnana Nagar, Shirpur, Maharashtra 425405</p>
                         </div>
                     </div>
                     <div class="info-item">
                         <i class="fas fa-phone-alt"></i>
                         <div>
-                            <h4>Emergency Contact</h4>
+                            <h4 data-i18n="emergency_title">Emergency Contact</h4>
                             <p>+91 12345 67890</p>
                             <p>+91 98765 43210</p>
                         </div>
@@ -221,9 +228,9 @@
                     <div class="info-item">
                         <i class="fas fa-clock"></i>
                         <div>
-                            <h4>OPD Timings</h4>
-                            <p>Mon - Sat: 10:00 AM - 2:00 PM</p>
-                            <p>Mon - Sat: 5:00 PM - 9:00 PM</p>
+                            <h4 data-i18n="timings_title">OPD Timings</h4>
+                            <p data-i18n="timings_1">Mon - Sat: 10:00 AM - 2:00 PM</p>
+                            <p data-i18n="timings_2">Mon - Sat: 5:00 PM - 9:00 PM</p>
                         </div>
                     </div>
                 </div>
@@ -238,7 +245,7 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2024 Sudip Hospital. All rights reserved.</p>
+            <p>&copy; 2024 Sudip Hospital. <span data-i18n="footer_rights">All rights reserved.</span></p>
         </div>
     </footer>
 

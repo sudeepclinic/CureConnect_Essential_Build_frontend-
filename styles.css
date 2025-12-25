@@ -181,6 +181,82 @@ h4 {
     cursor: pointer;
 }
 
+/* Language Switcher */
+.lang-dropdown {
+    position: relative;
+    margin-left: 10px;
+}
+
+.lang-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    color: var(--dark);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    font-family: 'Outfit', sans-serif;
+    padding: 5px 10px;
+    border-radius: 50px;
+    transition: var(--transition);
+}
+
+.lang-btn:hover {
+    color: var(--primary);
+    background: rgba(0, 128, 128, 0.05);
+}
+
+.lang-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: var(--white);
+    min-width: 140px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+    z-index: 1001;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    margin-top: 10px;
+}
+
+.lang-dropdown:hover .lang-content,
+.lang-dropdown:focus-within .lang-content {
+    display: block;
+    animation: fadeUpSmall 0.3s ease;
+}
+
+.lang-content a {
+    display: block;
+    padding: 12px 20px;
+    color: var(--dark);
+    font-size: 0.95rem;
+    transition: var(--transition);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.02);
+}
+
+.lang-content a:hover {
+    background: rgba(0, 128, 128, 0.05);
+    color: var(--primary);
+    padding-left: 25px;
+    /* Subtle slide effect */
+}
+
+@keyframes fadeUpSmall {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 /* Hero Section */
 .hero {
     position: relative;
@@ -503,6 +579,32 @@ footer {
         gap: 40px;
         transition: var(--transition);
         box-shadow: -5px 0 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .lang-dropdown {
+        margin: 0;
+        width: 100%;
+    }
+
+    .lang-btn {
+        justify-content: center;
+        width: 100%;
+        padding: 15px;
+        font-size: 1.1rem;
+    }
+
+    .lang-content {
+        position: static;
+        box-shadow: none;
+        background: rgba(0, 0, 0, 0.02);
+        width: 100%;
+        margin-top: 0;
+        border-radius: 0;
+    }
+
+    .lang-content a {
+        text-align: center;
+        padding: 15px;
     }
 
     .nav-links.active {
